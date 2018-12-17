@@ -15,13 +15,19 @@ $(document).ready(function() {
       success: function(data)
       {
         var film = data.results;
-
+        console.log(film);
+        $('.container').html('');
         for (var i = 0; i < film.length; i++) {
+
           var filmObject= film[i];
+          var voteChanged = (filmObject.vote_average) / 2;
+          var rounded = Math.ceil(voteChanged);
+          console.log(rounded);
+
           var source = $('#card-template').html();
           var template = Handlebars.compile(source);
           var context = {
-            title: filmObject.title, originaltitle: filmObject.original_title, language: filmObject.original_language, vote: filmObject.vote_average
+            title: filmObject.title, originaltitle: filmObject.original_title, language: filmObject.original_language, vote: rounded
 
           };
           var html = template(context);
