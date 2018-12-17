@@ -9,6 +9,22 @@
     <title>Boolfix</title>
 </head>
 <body>
-    <script src="main.js" charset="utf-8"></script>
+  <input type="text" id="search" >
+  <button id="button">search</button>
+  <div class="container">
+
+  </div>
+  <script id="card-template" type="text/x-handlebars-template">
+  <div class="entry">
+    <ul>
+      <li>Titolo: {{title}}</li>
+      <li>Titolo originale: {{originaltitle}}</li>
+      <li>Lingua: {{language}}</li>
+      <li>Voto: {{vote}}</li>
+
+    </ul>
+  </div>
+</script>
+  <script src="main.js" charset="utf-8"></script>
 </body>
 </html>
