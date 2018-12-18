@@ -17,3 +17,7 @@ ul {
 .entry {
   display: inline-block;
 }
+
+.yellow {
+  background-color: yellow;
+}

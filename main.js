@@ -24,18 +24,30 @@ $(document).ready(function() {
           var rounded = Math.ceil(voteChanged);
 
 
+          // Gestisco il voto con le stelle
 
           var starHtml = '';
+          var starEmpty = '';
+          var risultato ='';
           for (var k = 0; k < rounded; k++) {
-            console.log(rounded);
-            starHtml += '<i class="far fa-star">';
-            console.log(starHtml);
+
+            starHtml += '<i class="fas fa-star"></i>';
+
           }
+
+          for (var x = 0; x < (5 - rounded); x++) {
+            starEmpty += '<i class="far fa-star"></i>';
+          }
+
+          risultato = starHtml + starEmpty;
+          
+
+          // stampo con Handlebar
 
           var source = $('#card-template').html();
           var template = Handlebars.compile(source);
           var context = {
-            title: filmObject.title, originaltitle: filmObject.original_title, language: filmObject.original_language, vote: starHtml
+            title: filmObject.title, originaltitle: filmObject.original_title, language: filmObject.original_language, vote: risultato
 
           };
           var html = template(context);
