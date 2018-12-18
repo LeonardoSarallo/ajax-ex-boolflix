@@ -24,11 +24,12 @@ $(document).ready(function() {
           var rounded = Math.ceil(voteChanged);
 
 
+
           var starHtml = '';
-
           for (var k = 0; k < rounded; k++) {
+            console.log(rounded);
             starHtml += '<i class="far fa-star">';
-
+            console.log(starHtml);
           }
 
           var source = $('#card-template').html();
