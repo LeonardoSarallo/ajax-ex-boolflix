@@ -22,17 +22,19 @@ $(document).ready(function() {
           var filmObject= film[i];
           var voteChanged = (filmObject.vote_average) / 2;
           var rounded = Math.ceil(voteChanged);
-          console.log(rounded);
+
+
+          var starHtml = '';
 
           for (var k = 0; k < rounded; k++) {
-            var stars = $('#star').clone()
-            $('.container').append(stars);
+            starHtml += '<i class="far fa-star">';
+
           }
 
           var source = $('#card-template').html();
           var template = Handlebars.compile(source);
           var context = {
-            title: filmObject.title, originaltitle: filmObject.original_title, language: filmObject.original_language, vote: rounded
+            title: filmObject.title, originaltitle: filmObject.original_title, language: filmObject.original_language, vote: starHtml
 
           };
           var html = template(context);
