@@ -23,8 +23,11 @@ $(document).ready(function() {
           var voteChanged = (filmObject.vote_average) / 2;
           var rounded = Math.ceil(voteChanged);
           console.log(rounded);
-          
 
+          for (var k = 0; k < rounded; k++) {
+            var stars = $('#star').clone()
+            $('.container').append(stars);
+          }
 
           var source = $('#card-template').html();
           var template = Handlebars.compile(source);
