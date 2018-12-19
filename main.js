@@ -15,27 +15,16 @@ $(document).ready(function() {
       },
       success: function(data)
       {
-        var film = data.results;
-        console.log(film);
         $('.container').html('');
-        for (var i = 0; i < film.length; i++) {
+        for (var i = 0; i < data.results.length; i++) {
+          // $('.container').html('');
+          print(data.results[i]);
+          console.log(data.results[i]);
 
-          var filmObject= film[i];
-          var voteChanged = (filmObject.vote_average) / 2;
-          var rounded = Math.ceil(voteChanged);
 
-          // stampo con Handlebar
-
-          var source = $('#card-template').html();
-          var template = Handlebars.compile(source);
-          var context = {
-            title: filmObject.title, originaltitle: filmObject.original_title, language: languages(filmObject.original_language), vote: voto(rounded)
-
-          };
-          var html = template(context);
-          $('.container').append(html);
 
         }
+
       },
       error: function()
       {
@@ -46,6 +35,26 @@ $(document).ready(function() {
 });
 
 
+
+
+function print(filmObject)
+{
+
+
+  var voteChanged = (filmObject.vote_average) / 2;
+  var rounded = Math.ceil(voteChanged);
+
+  // stampo con Handlebar
+
+  var source = $('#card-template').html();
+  var template = Handlebars.compile(source);
+  var context = {
+    title: filmObject.title, originaltitle: filmObject.original_title, language: languages(filmObject.original_language), vote: voto(rounded)
+
+  };
+  var html = template(context);
+  $('.container').append(html);
+}
 
   // Gestisco il voto con le stelle
 
