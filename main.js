@@ -24,31 +24,12 @@ $(document).ready(function() {
           var voteChanged = (filmObject.vote_average) / 2;
           var rounded = Math.ceil(voteChanged);
 
-
-          // Gestisco il voto con le stelle
-
-          var starHtml = '';
-          var starEmpty = '';
-
-          for (var k = 0; k < rounded; k++) {
-
-            starHtml += '<i class="fas fa-star"></i>';
-
-          }
-
-          for (var x = 0; x < (5 - rounded); x++) {
-            starEmpty += '<i class="far fa-star"></i>';
-          }
-
-          var risultato = starHtml + starEmpty;
-
-
           // stampo con Handlebar
 
           var source = $('#card-template').html();
           var template = Handlebars.compile(source);
           var context = {
-            title: filmObject.title, originaltitle: filmObject.original_title, language: languages(filmObject.original_language), vote: risultato
+            title: filmObject.title, originaltitle: filmObject.original_title, language: languages(filmObject.original_language), vote: voto(rounded)
 
           };
           var html = template(context);
@@ -63,6 +44,31 @@ $(document).ready(function() {
     });
   });
 });
+
+
+
+  // Gestisco il voto con le stelle
+
+function voto(rounded)
+{
+  var starHtml = '';
+  var starEmpty = '';
+
+  for (var k = 0; k < rounded; k++) {
+
+    starHtml += '<i class="fas fa-star"></i>';
+
+  }
+
+  for (var x = 0; x < (5 - rounded); x++) {
+    starEmpty += '<i class="far fa-star"></i>';
+  }
+
+  var risultato = starHtml + starEmpty;
+
+  return risultato;
+}
+
 
 
 function languages(language)
