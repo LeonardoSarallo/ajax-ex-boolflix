@@ -21,3 +21,6 @@ ul {
 .yellow {
   background-color: yellow;
 }
+.flag {
+  max-width: 40px;
+}

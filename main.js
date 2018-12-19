@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
   $('#button').click(function() {
     var searchVal = $('#search').val();
     console.log(searchVal);
@@ -28,7 +29,7 @@ $(document).ready(function() {
 
           var starHtml = '';
           var starEmpty = '';
-          var risultato ='';
+
           for (var k = 0; k < rounded; k++) {
 
             starHtml += '<i class="fas fa-star"></i>';
@@ -39,15 +40,15 @@ $(document).ready(function() {
             starEmpty += '<i class="far fa-star"></i>';
           }
 
-          risultato = starHtml + starEmpty;
-          
+          var risultato = starHtml + starEmpty;
+
 
           // stampo con Handlebar
 
           var source = $('#card-template').html();
           var template = Handlebars.compile(source);
           var context = {
-            title: filmObject.title, originaltitle: filmObject.original_title, language: filmObject.original_language, vote: risultato
+            title: filmObject.title, originaltitle: filmObject.original_title, language: languages(filmObject.original_language), vote: risultato
 
           };
           var html = template(context);
@@ -62,3 +63,17 @@ $(document).ready(function() {
     });
   });
 });
+
+
+function languages(language)
+{
+  var supportedLanguages = ['it', 'en'];
+  var languageOutput = '';
+  if (supportedLanguages.includes(language)) {
+    languageOutput = "<img class='flag' src='" + language + ".png' />";
+  }
+  else {
+    languageOutput = language + ' non supportata';
+  }
+  return languageOutput;
+}
