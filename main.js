@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 function filmTvSeries() {
   var searchVal = $('#search').val();
-  
+
 
   $.ajax({
     url: 'https://api.themoviedb.org/3/search/movie',
@@ -33,7 +33,9 @@ function filmTvSeries() {
       for (var i = 0; i < film.length; i++) {
         // $('.container').html('');
         var filmContent = film[i];
+
         print(filmContent);
+
       }
       $.ajax({
         url: 'https://api.themoviedb.org/3/search/tv',
@@ -51,25 +53,9 @@ function filmTvSeries() {
             tvSeries.title = tvSeries.name;
             tvSeries.original_title = tvSeries.original_name;
             print(tvSeries);
+
           }
-          // $.ajax({
-          //   url: 'https://image.tmdb.org/t/p/',
-          //   method: 'GET',
-          //   data: {
-          //     api_key: 'f220b27ce9fae93a14b0e272a5ed631a',
-          //     language: 'it',
-          //     n: 'w185',
-          //     query: searchVal
-          //   },
-          //   success: function(data)
-          //   {
-          //     console.log(data);
-          //   },
-          //   error: function()
-          //   {
-          //     alert('errore');
-          //   }
-          // });
+
         },
         error: function()
         {
@@ -87,14 +73,30 @@ function filmTvSeries() {
 
 
 
+  //Funzione poster
+
+
+function poster(filmContent)
+{
+  var poster = '';
+  var posterMovie = 'https://image.tmdb.org/t/p/w185' + filmContent.poster_path;
+  var poster = "<img class='' src='" + posterMovie + "' />";
+  return poster;
+
+}
+
+
+
+
 
   // Funzione per stampare
 
-function print(filmObject)
+function print(filmContent)
 {
 
 
-  var voteChanged = (filmObject.vote_average) / 2;
+
+  var voteChanged = (filmContent.vote_average) / 2;
   var rounded = Math.ceil(voteChanged);
 
 
@@ -103,7 +105,7 @@ function print(filmObject)
   var template = Handlebars.compile(source);
   var context = {
 
-    title: filmObject.title, originaltitle: filmObject.original_title, language: languages(filmObject.original_language), vote: voto(rounded)
+   poster: poster(filmContent), title: filmContent.title, originaltitle: filmContent.original_title, language: languages(filmContent.original_language), vote: voto(rounded)
 
   };
   var html = template(context);
