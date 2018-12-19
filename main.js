@@ -16,15 +16,37 @@ $(document).ready(function() {
       success: function(data)
       {
         $('.container').html('');
-        for (var i = 0; i < data.results.length; i++) {
+        var film = data.results;
+
+        for (var i = 0; i < film.length; i++) {
           // $('.container').html('');
-          print(data.results[i]);
-          console.log(data.results[i]);
-
-
-
+          var filmContent = film[i];
+          print(filmContent);
         }
+        $.ajax({
+          url: 'https://api.themoviedb.org/3/search/tv',
+          method: 'GET',
+          data: {
+            api_key: 'f220b27ce9fae93a14b0e272a5ed631a',
+            language: 'it',
+            query: searchVal
+          },
+          success: function(data)
+          {
+            var film = data.results;
+            for (var i = 0; i < film.length; i++) {
+              tvSeries = film[i];
+              tvSeries.title = tvSeries.name;
+              tvSeries.original_title = tvSeries.original_name;
+              print(tvSeries);
+            }
+          },
+          error: function()
+          {
+            alert('si è verificato un errore');
+          }
 
+        });
       },
       error: function()
       {
