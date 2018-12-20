@@ -9,15 +9,23 @@
     <title>Boolfix</title>
 </head>
 <body>
-  <input type="text" id="search" >
-  <button id="button">search</button>
+  <div class="navbar">
+    <div class="nav_left">
+      <span class="bool">BOOLFLIX</span>
+    </div>
+    <div class="nav_right">
+      <input type="text" id="search" >
+      <button id="button">search</button>
+    </div>
+  </div>
+
   <div class="container">
 
   </div>
   <script id="card-template" type="text/x-handlebars-template">
     <div class="entry">
       <ul>
-        <li>image: {{{poster}}}</li>
+        <li>{{{poster}}}</li>
         <li>Titolo: {{title}}</li>
         <li>Titolo originale: {{originaltitle}}</li>
         <li>Lingua: {{{language}}}</li>

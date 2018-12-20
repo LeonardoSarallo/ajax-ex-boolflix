@@ -79,7 +79,7 @@ function filmTvSeries() {
 function poster(filmContent)
 {
   var poster = '';
-  var posterMovie = 'https://image.tmdb.org/t/p/w185' + filmContent.poster_path;
+  var posterMovie = 'https://image.tmdb.org/t/p/w342' + filmContent.poster_path;
   var poster = "<img class='' src='" + posterMovie + "' />";
   return poster;
 
@@ -121,7 +121,7 @@ function voto(rounded)
 
   for (var k = 0; k < rounded; k++) {
 
-    starHtml += '<i class="fas fa-star"></i>';
+    starHtml += '<i id="yellow" class="fas fa-star"></i>';
 
   }
 
@@ -134,7 +134,7 @@ function voto(rounded)
   return risultato;
 }
 
-
+  //Gestione flags
 
 function languages(language)
 {

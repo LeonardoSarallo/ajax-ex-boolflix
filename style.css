@@ -4,10 +4,35 @@
   box-sizing: border-box;
 }
 
-.container {
+body {
+  background: #34373a;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  height: 700px;
-  border: 1px solid black;
+  height: 80px;
+  background: black;
+}
+
+.nav_right {
+  margin-right: 35px;
+}
+.bool {
+  margin-left: 35px;
+  font-size: 30px;
+  color: red;
+}
+.container {
+  padding: 50px;
+  width: 100%;
+  height: auto;
+
+}
+.entry {
+  color: white;
 }
 
 ul {
@@ -18,8 +43,8 @@ ul {
   display: inline-block;
 }
 
-.yellow {
-  background-color: yellow;
+#yellow {
+  color: yellow;
 }
 .flag {
   max-width: 40px;
