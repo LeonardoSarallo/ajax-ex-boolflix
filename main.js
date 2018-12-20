@@ -4,8 +4,14 @@ $(document).ready(function() {
   $('#button').click(function() {
     filmTvSeries();
   });
-});
 
+  $('#search').keypress(function(e) {
+    if (e.which == 13) {
+      filmTvSeries();
+    }
+
+  });
+});
 
 
 

@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 body {
@@ -26,12 +28,17 @@ body {
   color: red;
 }
 .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   padding: 50px;
   width: 100%;
   height: auto;
 
 }
 .entry {
+  margin: 0 10px;
   position: relative;
   color: white;
 }
@@ -54,11 +61,12 @@ ul {
 }
 
 .hover {
+  overflow-y: auto;
   position: absolute;
   top: 0;
   background: black;
   width: 342px;
-  height: 512px;
+  height: 520px;
   color: white;
   padding: 10px;
   display: none;
@@ -67,4 +75,21 @@ ul {
 
 .hover li {
   margin-top: 25px;
+}
+
+#search {
+
+  font-size: 15px;
+  border: none;
+  outline: none;
+}
+
+#button {
+
+  font-size: 15px;
+  padding: 0 15px;
+}
+
+#search::placeholder {
+  font-size: 13px;
 }

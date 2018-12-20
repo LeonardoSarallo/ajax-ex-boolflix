@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <title>Boolfix</title>
@@ -14,7 +15,7 @@
       <span class="bool">BOOLFLIX</span>
     </div>
     <div class="nav_right">
-      <input type="text" id="search" >
+      <input type="text" id="search" placeholder="Inserisci il titolo">
       <button id="button">search</button>
     </div>
   </div>
@@ -26,8 +27,6 @@
     <div class="entry">
       <ul>
         <li>{{{poster}}}</li>
-
-
         <div class="hover">
           <li>Titolo: {{title}}</li>
           <li>Titolo originale: {{originaltitle}}</li>
