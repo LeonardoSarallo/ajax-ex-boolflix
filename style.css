@@ -32,6 +32,7 @@ body {
 
 }
 .entry {
+  position: relative;
   color: white;
 }
 
@@ -42,10 +43,28 @@ ul {
 .entry {
   display: inline-block;
 }
-
+.entry:hover .hover {
+  display: block;
+}
 #yellow {
   color: yellow;
 }
 .flag {
   max-width: 40px;
+}
+
+.hover {
+  position: absolute;
+  top: 0;
+  background: black;
+  width: 342px;
+  height: 512px;
+  color: white;
+  padding: 10px;
+  display: none;
+
+}
+
+.hover li {
+  margin-top: 25px;
 }
