@@ -27,6 +27,7 @@ function filmTvSeries() {
     },
     success: function(data)
     {
+      console.log(data);
       $('.container').html('');
       var film = data.results;
 
@@ -105,7 +106,7 @@ function print(filmContent)
   var template = Handlebars.compile(source);
   var context = {
 
-   poster: poster(filmContent), title: filmContent.title, originaltitle: filmContent.original_title, language: languages(filmContent.original_language), vote: voto(rounded)
+   poster: poster(filmContent), title: filmContent.title, originaltitle: filmContent.original_title, language: languages(filmContent.original_language), vote: voto(rounded), overview: filmContent.overview
 
   };
   var html = template(context);
